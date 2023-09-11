@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion!{% endblock %}
+
+{% block body %}
+<div class="container-login">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card-login">
+                <div class="login-card">
+                    <h5 class="login-card-title ">Veuillez vous connecter</h5>
+                    <form method="post">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        {% if app.user %}
+                            <div class="mb-3">
+                                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                            </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputPassword" class="form-label">Mot de passe</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
+
+                        <p>
+                            <a href="{{ path('app_forgot_password_request') }}">J'ai oublié mon mot de passe</a>
+                        </p>
+
+                        <button class="btn btn" type="submit">S'identifier</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+        <img src="{{ asset('assets/images/LOGO/BWM.png') }}" alt="Logo Brows with manel" class="logo">
+        </div>
+    </div>
+</div>
+{% endblock %}
