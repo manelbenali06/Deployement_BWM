@@ -1,12 +1,11 @@
-<h1>Bonjour! Veuillez confirmer votre mail!</h1>
+<h1>Hi! Please confirm your email!</h1>
 
 <p>
-    
-Veuillez confirmer votre adresse e-mail en cliquant sur le lien suivant: <br><br>
+    Please confirm your email address by clicking the following link: <br><br>
     <a href="{{ signedUrl|raw }}">Confirm my Email</a>.
-    Celien expire dans  {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
 </p>
 
 <p>
-    Bravo!
+    Cheers!
 </p>

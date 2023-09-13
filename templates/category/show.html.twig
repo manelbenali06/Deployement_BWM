@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categories{% endblock %}
+{% block title %}Category{% endblock %}
 
 {% block body %}
-    <h1>Categorie</h1>
+    <h1>Category</h1>
 
     <table class="table">
         <tbody>
@@ -12,11 +12,11 @@
                 <td>{{ category.id }}</td>
             </tr>
             <tr>
-                <th>Nom</th>
+                <th>Name</th>
                 <td>{{ category.name }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_category_index') }}">Revenir à la liste</a>
+    <a href="{{ path('app_category_index') }}">back to list</a>
 {% endblock %}
